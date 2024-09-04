@@ -23,6 +23,9 @@ Partial Class f_mhs
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnSisip = New System.Windows.Forms.Button()
+        Me.btnUbah = New System.Windows.Forms.Button()
+        Me.btnHapus = New System.Windows.Forms.Button()
         Me.btnTampil = New System.Windows.Forms.Button()
         Me.txtFilter = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,7 +37,6 @@ Partial Class f_mhs
         Me.chtanggal_lahir = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chmasuk = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chkeluar = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.btnHapus = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -51,6 +53,8 @@ Partial Class f_mhs
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnSisip)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnUbah)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnTampil)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtFilter)
@@ -59,9 +63,36 @@ Partial Class f_mhs
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.lvMHS)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1243, 404)
+        Me.SplitContainer1.Size = New System.Drawing.Size(942, 351)
         Me.SplitContainer1.SplitterDistance = 73
         Me.SplitContainer1.TabIndex = 4
+        '
+        'btnSisip
+        '
+        Me.btnSisip.Location = New System.Drawing.Point(25, 20)
+        Me.btnSisip.Name = "btnSisip"
+        Me.btnSisip.Size = New System.Drawing.Size(75, 37)
+        Me.btnSisip.TabIndex = 8
+        Me.btnSisip.Text = "&Sisip"
+        Me.btnSisip.UseVisualStyleBackColor = True
+        '
+        'btnUbah
+        '
+        Me.btnUbah.Location = New System.Drawing.Point(759, 19)
+        Me.btnUbah.Name = "btnUbah"
+        Me.btnUbah.Size = New System.Drawing.Size(75, 37)
+        Me.btnUbah.TabIndex = 7
+        Me.btnUbah.Text = "&Ubah"
+        Me.btnUbah.UseVisualStyleBackColor = True
+        '
+        'btnHapus
+        '
+        Me.btnHapus.Location = New System.Drawing.Point(849, 20)
+        Me.btnHapus.Name = "btnHapus"
+        Me.btnHapus.Size = New System.Drawing.Size(75, 37)
+        Me.btnHapus.TabIndex = 6
+        Me.btnHapus.Text = "&Hapus"
+        Me.btnHapus.UseVisualStyleBackColor = True
         '
         'btnTampil
         '
@@ -92,9 +123,10 @@ Partial Class f_mhs
         '
         Me.lvMHS.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.chnim, Me.chnama, Me.chjenis_kelamin, Me.chtempat_lahir, Me.chtanggal_lahir, Me.chmasuk, Me.chkeluar})
         Me.lvMHS.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lvMHS.FullRowSelect = True
         Me.lvMHS.Location = New System.Drawing.Point(0, 0)
         Me.lvMHS.Name = "lvMHS"
-        Me.lvMHS.Size = New System.Drawing.Size(1243, 327)
+        Me.lvMHS.Size = New System.Drawing.Size(942, 274)
         Me.lvMHS.TabIndex = 4
         Me.lvMHS.UseCompatibleStateImageBehavior = False
         Me.lvMHS.View = System.Windows.Forms.View.Details
@@ -112,41 +144,37 @@ Partial Class f_mhs
         'chjenis_kelamin
         '
         Me.chjenis_kelamin.Text = "Jenis Kelamin"
+        Me.chjenis_kelamin.Width = 120
         '
         'chtempat_lahir
         '
         Me.chtempat_lahir.Text = "Tempat Lahir"
-        Me.chtempat_lahir.Width = 38
+        Me.chtempat_lahir.Width = 150
         '
         'chtanggal_lahir
         '
         Me.chtanggal_lahir.Text = "Tanggal Lahir"
+        Me.chtanggal_lahir.Width = 120
         '
         'chmasuk
         '
         Me.chmasuk.Text = "Masuk"
+        Me.chmasuk.Width = 120
         '
         'chkeluar
         '
         Me.chkeluar.Text = "Keluar"
-        '
-        'btnHapus
-        '
-        Me.btnHapus.Location = New System.Drawing.Point(849, 25)
-        Me.btnHapus.Name = "btnHapus"
-        Me.btnHapus.Size = New System.Drawing.Size(75, 32)
-        Me.btnHapus.TabIndex = 6
-        Me.btnHapus.Text = "&Hapus"
-        Me.btnHapus.UseVisualStyleBackColor = True
+        Me.chkeluar.Width = 120
         '
         'f_mhs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1243, 404)
+        Me.ClientSize = New System.Drawing.Size(942, 351)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "f_mhs"
         Me.Text = "Data Mahasiswa"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
@@ -168,5 +196,7 @@ Partial Class f_mhs
     Friend WithEvents chmasuk As System.Windows.Forms.ColumnHeader
     Friend WithEvents chkeluar As System.Windows.Forms.ColumnHeader
     Friend WithEvents btnHapus As System.Windows.Forms.Button
+    Friend WithEvents btnUbah As System.Windows.Forms.Button
+    Friend WithEvents btnSisip As System.Windows.Forms.Button
 
 End Class
