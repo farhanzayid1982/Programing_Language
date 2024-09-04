@@ -43,6 +43,7 @@ Public Class f_mhs
 
                     ' Decode JSON string to User object
                     Dim odmhs As ODataMHS = jss.Deserialize(Of ODataMHS)(responseText)
+
                     'Membersihkan listview
                     lvMHS.Items.Clear()
                     'Mempopulate data listview
@@ -67,5 +68,63 @@ Public Class f_mhs
         End Try
 
 
+    End Sub
+
+
+    Private Sub btnHapus_Click(sender As System.Object, e As System.EventArgs) Handles btnHapus.Click
+        If MsgBox("Apakah akan menghapus data " & lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(0).Text, vbYesNo, "Konfirmasi") = vbNo Then
+            Exit Sub
+        End If
+        ' URL yang ingin Anda minta
+        Dim url As String = "http://localhost:8080"
+
+        ' Data yang ingin Anda kirim (dalam format JSON dalam contoh ini)
+        Dim data As String = "{""data"":{""perintah"":""hapusMHS"",""nim"":""" & lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(0).Text & """},""kunci"":""12345""}"
+
+        ' Membuat objek HttpWebRequest
+        Dim request As HttpWebRequest = DirectCast(WebRequest.Create(url), HttpWebRequest)
+
+        ' Menetapkan metode permintaan (POST dalam contoh ini)
+        request.Method = "POST"
+
+        ' Menetapkan jenis konten
+        request.ContentType = "application/json"
+
+        ' Mengirim data
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(data)
+        request.ContentLength = byteArray.Length
+        Dim dataStream As System.IO.Stream = request.GetRequestStream()
+        dataStream.Write(byteArray, 0, byteArray.Length)
+        dataStream.Close()
+
+        Try
+            ' Mendapatkan respons dari server
+            Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+
+            ' Membaca respons dari server
+            Using stream As System.IO.Stream = response.GetResponseStream()
+                Using reader As New System.IO.StreamReader(stream)
+                    Dim responseText As String = reader.ReadToEnd()
+                    'MsgBox(responseText)
+                    Dim jss As New JavaScriptSerializer()
+
+                    ' Decode JSON string to User object
+                    Dim odmhs As ODataMHS = jss.Deserialize(Of ODataMHS)(responseText)
+
+                    If odmhs.status = "SUKSES" Then
+                        MsgBox("Penghapusan SUKSES", vbOKOnly, "Informasi")
+                        btnTampil_Click(sender, e)
+                    Else
+                        MsgBox(odmhs.pesan, MsgBoxStyle.Critical, "Penghapusan GAGAL")
+                    End If
+
+                End Using
+            End Using
+
+            ' Menutup respons
+            response.Close()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message)
+        End Try
     End Sub
 End Class

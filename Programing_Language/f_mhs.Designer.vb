@@ -34,6 +34,7 @@ Partial Class f_mhs
         Me.chtanggal_lahir = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chmasuk = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.chkeluar = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnHapus = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -50,6 +51,7 @@ Partial Class f_mhs
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnHapus)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnTampil)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtFilter)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
@@ -128,6 +130,15 @@ Partial Class f_mhs
         '
         Me.chkeluar.Text = "Keluar"
         '
+        'btnHapus
+        '
+        Me.btnHapus.Location = New System.Drawing.Point(849, 25)
+        Me.btnHapus.Name = "btnHapus"
+        Me.btnHapus.Size = New System.Drawing.Size(75, 32)
+        Me.btnHapus.TabIndex = 6
+        Me.btnHapus.Text = "&Hapus"
+        Me.btnHapus.UseVisualStyleBackColor = True
+        '
         'f_mhs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -156,5 +167,6 @@ Partial Class f_mhs
     Friend WithEvents chtanggal_lahir As System.Windows.Forms.ColumnHeader
     Friend WithEvents chmasuk As System.Windows.Forms.ColumnHeader
     Friend WithEvents chkeluar As System.Windows.Forms.ColumnHeader
+    Friend WithEvents btnHapus As System.Windows.Forms.Button
 
 End Class
