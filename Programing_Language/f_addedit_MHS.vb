@@ -84,4 +84,9 @@ Public Class f_addedit_MHS
             MsgBox("Error: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub btnBatal_Click(sender As System.Object, e As System.EventArgs) Handles btnBatal.Click
+        f_mhs.Show()
+        Me.Close()
+    End Sub
 End Class

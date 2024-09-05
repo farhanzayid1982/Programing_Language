@@ -178,6 +178,16 @@ Public Class f_mhs
     End Sub
 
     Private Sub f_mhs_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+        'Membentuk Listview secara 
+        lvMHS.View = View.Details
+        lvMHS.Columns.Clear()
+        lvMHS.Columns.Add("Nim", 100, HorizontalAlignment.Center)
+        lvMHS.Columns.Add("Nama", 200, HorizontalAlignment.Left)
+        lvMHS.Columns.Add("Jenis Kelamin", 100, HorizontalAlignment.Center)
+        lvMHS.Columns.Add("Tempat Lahir", 150, HorizontalAlignment.Left)
+        lvMHS.Columns.Add("Tanggal Lahir", 100, HorizontalAlignment.Center)
+        lvMHS.Columns.Add("Masuk", 100, HorizontalAlignment.Center)
+        lvMHS.Columns.Add("Keluar", 100, HorizontalAlignment.Center)
         btnTampil_Click(sender, e)
     End Sub
 
