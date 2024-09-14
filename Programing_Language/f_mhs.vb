@@ -151,8 +151,8 @@ Public Class f_mhs
             .oldmhs.tempat_lahir = lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(3).Text
             .oldmhs.tanggal_lahir = lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(4).Text
             .oldmhs.masuk = lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(5).Text
-
             .oldmhs.keluar = lvMHS.Items(lvMHS.FocusedItem.Index).SubItems(6).Text
+
             If .oldmhs.keluar = "0000-00-00" Or .oldmhs.keluar = "" Then
                 .oldmhs.keluar = ""
                 .dtpKeluar.Checked = False
